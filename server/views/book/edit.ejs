@@ -7,9 +7,33 @@
     <div class="row">
         <div class="offset-md-3 col-md-6">
             <h1><%= title %></h1>
+            
 
             <form class="form" method="POST">
                 <div class="form-group">
+                    <label for="nameTextField">User name</label>
+                    <input type="text" class="form-control"
+                    id="nameTextField"
+                    placeholder="Enter the Username"
+                    name="name" value="<%= book.name %>"required>
+                </div>
+                <div class="form-group">
+                    <label for="passwordTextField">Password</label>
+                    <input type="password" class="form-control"
+                    id="passwordTextField"
+                    placeholder="Enter the password" value="<%= book.password %>"
+                    name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="emailTextField">Email</label>
+                    <input type="email" class="form-control"
+                    id="emailTextField"
+                    placeholder="Enter the email address" value="<%= book.email %>"
+                    name="email" required>
+                </div>
+
+                
+                <!-- <div class="form-group">
                     <label for="nameTextField">Book Title</label>
                     <input type="text" class="form-control"
                     id="nameTextField"
@@ -59,7 +83,7 @@
                     value="<%= book.price %>"
                     required>
                 </div>
-
+                -->
                 <button class="btn btn-primary" type="submit">
                     <i class="fas fa-edit"></i> Submit</button>
                 

@@ -15,22 +15,20 @@ module.exports.displayBookList = (req, res, next) => {
         {
             //console.log(BookList);
 
-            res.render('book/list', {title: 'Books', BookList: bookList});      
+            res.render('book/list', {title: 'Contacts', BookList: bookList});      
         }
     });
 }
 
 module.exports.displayAddPage = (req, res, next) => {
-    res.render('book/add', {title: 'Add Book'})          
+    res.render('book/add', {title: 'Add Contact'})          
 }
 
 module.exports.processAddPage = (req, res, next) => {
     let newBook = Book({
         "name": req.body.name,
-        "author": req.body.author,
-        "published": req.body.published,
-        "description": req.body.description,
-        "price": req.body.price
+        "password": req.body.password,
+        "email": req.body.email
     });
 
     Book.create(newBook, (err, Book) =>{
@@ -60,7 +58,7 @@ module.exports.displayEditPage = (req, res, next) => {
         else
         {
             //show the edit view
-            res.render('book/edit', {title: 'Edit Book', book: bookToEdit})
+            res.render('book/edit', {title: 'Edit Contact', book: bookToEdit})
         }
     });
 }
@@ -71,10 +69,8 @@ module.exports.processEditPage = (req, res, next) => {
     let updatedBook = Book({
         "_id": id,
         "name": req.body.name,
-        "author": req.body.author,
-        "published": req.body.published,
-        "description": req.body.description,
-        "price": req.body.price
+        "password": req.body.password,
+        "email": req.body.email
     });
 
     Book.updateOne({_id: id}, updatedBook, (err) => {
